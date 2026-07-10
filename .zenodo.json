@@ -1,0 +1,22 @@
+{
+  "title": "Λ-EG — Emergent Gravitational Coherence: Theory, Ontology, Cosmology (T.O.C.)",
+  "description": "Canonical consolidated record of the Λ-EG (Lambda Emergent Gravity) programme by J. Pablo Figueroa Torres. Includes: the covariant scalar-tensor emergent-gravity framework (v7, with the a0 = 4*pi*g_crit zero-point correction); the confrontation with JADES DR4 high-redshift data; and the geometric mu-theorem (the standard MOND interpolating function mu(x)=x/sqrt(1+x^2) as the isotropic distribution of cot theta). Consolidates earlier scattered Zenodo records into a single citable lineage. Cosmology (CMB/FLRW) and ontology sections are forthcoming in future versions of this record.",
+  "upload_type": "publication",
+  "publication_type": "preprint",
+  "creators": [
+    { "name": "Figueroa Torres, J. Pablo", "orcid": "0009-0005-5297-8777" }
+  ],
+  "keywords": [
+    "emergent gravity", "modified gravity", "MOND", "dark matter",
+    "baryonic Tully-Fisher relation", "SPARC", "JADES", "interpolating function",
+    "De Sitter", "cosmology", "spacetime ontology"
+  ],
+  "license": "CC-BY-4.0",
+  "related_identifiers": [
+    { "identifier": "10.5281/zenodo.19784004", "relation": "references", "scheme": "doi" },
+    { "identifier": "10.5281/zenodo.20369196", "relation": "references", "scheme": "doi" },
+    { "identifier": "10.5281/zenodo.19674722", "relation": "references", "scheme": "doi" },
+    { "identifier": "10.5281/zenodo.19364572", "relation": "references", "scheme": "doi" },
+    { "identifier": "10.5281/zenodo.19013213", "relation": "references", "scheme": "doi" }
+  ]
+}
