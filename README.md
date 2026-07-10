@@ -1,5 +1,7 @@
 ![Λ-EG](lambda_eg_logo.png)
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21287072.svg)](https://doi.org/10.5281/zenodo.21287072)
+
 # Λ-EG — Emergent Gravitational Coherence · **T.O.C.**
 ### Theory · Ontology · Cosmology
 
