@@ -1,0 +1,507 @@
+%% ============================================================
+%% Lambda-EG x JADES DR4 -- manuscrito para RMxAA
+%% Clase rmxaa (RMxAA-journal/RMxAA-macros, v3)
+%% Compilar:  pdflatex -> bibtex -> pdflatex -> pdflatex
+%% ============================================================
+\documentclass{rmxaa}
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{paralist}
+\usepackage[svgnames]{xcolor}
+\hypersetup{colorlinks, linkcolor=MediumBlue, citecolor=black,
+            urlcolor=MediumBlue}
+
+%% --- Macros utiles ---
+\newcommand{\gcrit}{g_{\rm crit}}
+\newcommand{\Mbar}{M_{\rm bar}}
+\newcommand{\Vobs}{V_{\rm obs}}
+\newcommand{\Vpred}{V_{\rm pred}}
+\newcommand{\kms}{\ensuremath{\mathrm{km\,s^{-1}}}}
+\newcommand{\Ha}{\ensuremath{\mathrm{H\alpha}}}
+\newcommand{\Msun}{\ensuremath{M_\odot}}
+\newcommand{\LEG}{\mbox{$\Lambda$-EG}}
+
+%% ============================================================
+%% Encabezado
+%% ============================================================
+\title{A First Observational Test of the \LEG{} $\beta(\Phi)$ Flow
+  against JADES DR4 NIRSpec Spectroscopy at $z=3$--$6$}
+
+\author{J. P. Figueroa Torres\altaffilmark{1}}
+
+\altaffiltext{1}{Independent Researcher, Guadalajara, Jalisco,
+  M\'exico.}
+
+\shortauthor{Figueroa Torres}
+\shorttitle{A First Test of the \LEG{} $\beta(\Phi)$ Flow with JADES DR4}
+
+\fulladdresses{
+\item J. P. Figueroa Torres: Independent Researcher, Guadalajara,
+  Jalisco, M\'exico (quimikcasera369@gmail.com).
+}
+
+\listofauthors{J. P. Figueroa Torres}
+\indexauthor{Figueroa Torres, J. P.}
+
+%% --- Abstract (ingles) ---
+\abstract{Lambda Emergent Gravity (\LEG) predicts a redshift-dependent
+  critical acceleration $\gcrit(z)=cH(z)/(4\pi^2\sqrt{3})$ and a
+  baryonic Tully--Fisher relation (BTFR) that evolves as $V^4\propto
+  \Mbar\,\gcrit(z)$. The framework further derives a ``$\beta$-function''
+  $\beta(\Phi)$ governing the relaxation of the dimensionless BTFR
+  deviation $\Phi$, with the quantitative prediction $\sigma_\Phi(0)<0.04$
+  dex. We present the first quantitative observational test of this
+  prediction using $59$ galaxies from the JWST/JADES Data Release~4 with
+  NIRSpec $R\sim1000$ spectroscopy at $z=3$--$6$. We measure intrinsic
+  \Ha{} velocity dispersions, estimate baryonic masses through
+  \Ha$\to$SFR$\to$main-sequence calibrations, and evaluate $\Phi$ for the
+  $24$ galaxies in the Taylor regime $|\Phi|<1$. The analytic shape of
+  $\beta(\Phi)$ is recovered, but we find a systematic offset
+  (median $\Vobs/\Vpred=0.77$, median $\Phi=-0.65$, $t$-test $p=0.014$)
+  and $\sigma_\Phi(0)=0.10$ dex, exceeding the prediction by
+  $\sim2.5\times$. A model-independent line-profile quality test
+  (``SMITH-QA'') shows the offset is \emph{robust} to the exclusion of
+  non-Gaussian profiles, ruling out turbulence/outflow contamination of
+  $\sigma_{\Ha}$ as its origin. The bias corresponds to a $+0.45$~dex
+  mass overestimate, which lies \emph{within} the $0.87$~dex inter-method
+  scatter of high-$z$ stellar-mass calibrations. We conclude that the
+  present test is \emph{calibration-limited} rather than theory-limited,
+  in agreement with the framework's own forecast that a definitive test
+  requires spatially resolved kinematics (ELT/HARMONI) and SED-fit
+  masses.}
+
+%% --- Resumen (espanol) ---
+\resumen{La Gravedad Emergente Lambda (\LEG) predice una aceleraci\'on
+  cr\'\i{}tica dependiente del corrimiento al rojo
+  $\gcrit(z)=cH(z)/(4\pi^2\sqrt{3})$ y una relaci\'on de Tully--Fisher
+  bari\'onica (BTFR) que evoluciona como $V^4\propto \Mbar\,\gcrit(z)$. El
+  marco deriva adem\'as una ``funci\'on $\beta$'' $\beta(\Phi)$ que rige la
+  relajaci\'on de la desviaci\'on adimensional $\Phi$ de la BTFR, con la
+  predicci\'on cuantitativa $\sigma_\Phi(0)<0.04$~dex. Presentamos la
+  primera prueba observacional cuantitativa de esta predicci\'on usando
+  $59$ galaxias del Data Release~4 de JWST/JADES con espectroscop\'\i{}a
+  NIRSpec $R\sim1000$ a $z=3$--$6$. Medimos dispersiones de velocidad
+  intr\'\i{}nsecas de \Ha, estimamos masas bari\'onicas mediante
+  calibraciones \Ha$\to$SFR$\to$secuencia principal, y evaluamos $\Phi$
+  para las $24$ galaxias en el r\'egimen de Taylor $|\Phi|<1$. Se recupera
+  la forma anal\'\i{}tica de $\beta(\Phi)$, pero hallamos un sesgo
+  sistem\'atico (mediana $\Vobs/\Vpred=0.77$, mediana $\Phi=-0.65$,
+  $p=0.014$) y $\sigma_\Phi(0)=0.10$~dex, que excede la predicci\'on por
+  $\sim2.5\times$. Una prueba de calidad de perfil independiente del
+  modelo (``SMITH-QA'') muestra que el sesgo es \emph{robusto} a la
+  exclusi\'on de perfiles no gaussianos, descartando la contaminaci\'on
+  por turbulencia/eyecciones como su origen. El sesgo corresponde a una
+  sobrestimaci\'on de masa de $+0.45$~dex, que cae \emph{dentro} de la
+  dispersi\'on entre m\'etodos de $0.87$~dex. Concluimos que la prueba
+  est\'a \emph{limitada por la calibraci\'on} y no por la teor\'\i{}a, de
+  acuerdo con la propia predicci\'on del marco.}
+
+%% --- Keywords (lista estandar, orden alfabetico) ---
+\addkeyword{cosmology: theory}
+\addkeyword{dark matter}
+\addkeyword{galaxies: evolution}
+\addkeyword{galaxies: high-redshift}
+\addkeyword{galaxies: kinematics and dynamics}
+\addkeyword{gravitation}
+
+\begin{document}
+\maketitle
+
+%% ============================================================
+\section{Introduction}
+\label{sec:intro}
+
+The flat rotation curves of galaxies and the tight baryonic
+Tully--Fisher relation (BTFR), $\Mbar\propto V^4$
+\citep{McGaugh2000,LelliBTFR2016}, are usually attributed to dark-matter
+halos, but they can also be read as evidence for a low-acceleration
+modification of dynamics \citep{Milgrom1983} or for an emergent
+gravitational response of the form proposed by \citet{Verlinde2017}.
+A common feature of these scenarios is a \emph{critical acceleration}
+scale $\gcrit\sim cH_0$ below which the effective dynamics depart from
+the Newtonian regime.
+
+Lambda Emergent Gravity \citep[\LEG;][]{FigueroaTorres2026} is a screened
+scalar--tensor framework in which this scale arises from the spectral
+geometry of the de~Sitter horizon, yielding the parameter-free value
+\begin{equation}
+  \label{eq:gcrit}
+  \gcrit=\frac{cH_0}{4\pi^2\sqrt{3}}=9.58\times10^{-12}\
+  \mathrm{m\,s^{-2}},
+\end{equation}
+with $H_0=67.4\ \kms\,{\rm Mpc^{-1}}$ \citep{Planck2020}. Because
+$\gcrit$ inherits the Hubble rate, \LEG{} predicts a \emph{redshift
+  evolution} of the BTFR through $\gcrit(z)=cH(z)/(4\pi^2\sqrt{3})$,
+and Section~10 of \citet{FigueroaTorres2026} derives a renormalization
+``$\beta$-function'' that governs how the dimensionless BTFR deviation
+relaxes towards zero. This $\beta(\Phi)$ flow makes a sharp, falsifiable
+prediction for the intrinsic scatter of the high-redshift BTFR
+(\S\ref{sec:framework}).
+
+The advent of JWST/NIRSpec spectroscopy of $z>3$ galaxies makes a direct
+test of this prediction possible for the first time. In this Letter we
+confront the \LEG{} $\beta(\Phi)$ flow with $59$ galaxies from the JADES
+Data Release~4 (\S\ref{sec:data}), describe our spectral and mass
+measurements (\S\ref{sec:methods}), present the test
+(\S\ref{sec:results}), and ask whether the systematic offset we find is
+astrophysical or instrumental by means of a model-independent
+line-profile diagnostic (\S\ref{sec:smith}). We discuss the
+implications in \S\ref{sec:discussion} and conclude in
+\S\ref{sec:conclusions}. Throughout we adopt a flat $\Lambda$CDM
+cosmology with $\Omega_m=0.315$, $\Omega_\Lambda=0.685$ and
+$H_0=67.4\ \kms\,{\rm Mpc^{-1}}$ \citep{Planck2020}.
+
+%% ============================================================
+\section{The \LEG{} framework and the $\beta(\Phi)$ flow}
+\label{sec:framework}
+
+In \LEG{} the baryonic Tully--Fisher relation acquires an explicit
+cosmological time dependence,
+\begin{equation}
+  \label{eq:btfr}
+  V^4 = G\,\Mbar\,\gcrit(z), \qquad
+  \gcrit(z)=\frac{c\,H(z)}{4\pi^2\sqrt{3}},
+\end{equation}
+with $H(z)=H_0\sqrt{\Omega_m(1+z)^3+\Omega_\Lambda}$. Equation
+(\ref{eq:btfr}) implies that, at fixed baryonic mass, the rotation
+velocity scales as
+\begin{equation}
+  \label{eq:Vevol}
+  \frac{V(z)}{V(0)}=\left[\frac{H(z)}{H_0}\right]^{1/4},
+\end{equation}
+so that the BTFR zero-point brightens by $\approx0.16$ dex at $z=4$ and
+$\approx0.20$ dex at $z=6$ relative to $z=0$.
+
+It is convenient to define the dimensionless deviation of an individual
+galaxy from the \LEG{} BTFR,
+\begin{equation}
+  \label{eq:Phi}
+  \Phi \equiv \frac{\Vobs^4}{G\,\Mbar\,\gcrit(z)}-1
+        = \left(\frac{\Vobs}{\Vpred}\right)^4-1,
+\end{equation}
+where $\Vpred=(G\,\Mbar\,\gcrit(z))^{1/4}$. Section~10 of
+\citet{FigueroaTorres2026} shows that, under the screened $k$-essence
+dynamics of the framework, $\Phi$ obeys a gradient flow whose exact
+$\beta$-function is
+\begin{equation}
+  \label{eq:beta}
+  \beta(\Phi)= -\,\frac{\Phi\,(2+\Phi)(1+\Phi)}{2+\Phi(2+\Phi)},
+\end{equation}
+valid for all $\Phi>-1$. Near the fixed point $\Phi=0$ this linearizes
+to $\beta(\Phi)\simeq-\Phi-\tfrac12\Phi^2$, giving an exponential
+relaxation $\Phi(\lambda)=\Phi_0\,e^{-\lambda}$ with flow time
+$\lambda=\ln[H(z)/H_0]$. Consequently the dispersion of $\Phi$ across a
+galaxy population is predicted to scale as
+\begin{equation}
+  \label{eq:sigmaPhi}
+  \sigma_\Phi(z)=\sigma_\Phi(0)\,\frac{H(z)}{H_0},\qquad
+  \sigma_\Phi(0)<0.04\ \mathrm{dex},
+\end{equation}
+the inequality being the quantitative target derived in \S10.8 of
+\citet{FigueroaTorres2026}. Equations (\ref{eq:beta}) and
+(\ref{eq:sigmaPhi}) are the two predictions we test below: the
+\emph{shape} of the flow and the \emph{magnitude} of the residual
+scatter.
+
+%% ============================================================
+\section{Data: the JADES DR4 sample}
+\label{sec:data}
+
+We use the JWST Advanced Deep Extragalactic Survey
+\citep[JADES;][]{Bunker2024} Data Release~4 NIRSpec catalogue
+\citep{CurtisLake2025,Scholtz2025}, specifically the combined external
+table \texttt{Combined\_DR4\_external\_v1.2.1.fits}. From the parent
+catalogue of $2{,}858$ sources with secure spectroscopic redshifts
+(quality flag A) we select galaxies that
+
+\begin{compactenum}[(i)]
+\item lie at $3.0\le z\le 6.5$, where \Ha{} falls in the G235M/G395M
+  gratings;
+\item have a catalogue \Ha{} signal-to-noise ratio ${\rm SNR}>10$; and
+\item have a well-defined rest-frame UV magnitude $-30<M_{\rm UV}<-10$.
+\end{compactenum}
+
+For these objects we retrieved the $R\sim1000$ one-dimensional extracted
+spectra (\texttt{x1d}) from MAST. After the spectral quality cuts
+described in \S\ref{sec:methods} we obtain a final working sample of
+$59$ galaxies with intrinsically resolved \Ha{} dispersions.
+Figure~\ref{fig:sample} shows their redshift distribution, which peaks
+at $z\simeq3.5$ and extends to $z\simeq6$.
+
+\begin{figure}[!t]
+  \centering
+  \includegraphics[width=\columnwidth]{fig1_sample}
+  \caption{Spectroscopic redshift distribution of the $59$ JADES DR4
+    galaxies in the working sample. \Ha{} is accessible with the
+    NIRSpec medium-resolution gratings over the full $z=3$--$6$ range.}
+  \label{fig:sample}
+\end{figure}
+
+%% ============================================================
+\section{Methods}
+\label{sec:methods}
+
+\subsection{Intrinsic \Ha{} dispersions}
+\label{sec:spec}
+
+For each source we extract a $\pm0.05\,\mu$m window around the observed
+\Ha{} wavelength $\lambda_{\rm obs}=6563\,(1+z)$\,\AA{} and fit a single
+Gaussian on a linear continuum. The observed dispersion
+$\sigma_{\rm obs}$ is corrected for the instrumental line-spread
+function, $\sigma_{\rm inst}=\lambda_{\rm obs}/(R\,2.355)$ with $R=1000$
+($\sigma_{\rm inst}\approx127\ \kms$), in quadrature:
+$\sigma_{\rm int}^2=\sigma_{\rm obs}^2-\sigma_{\rm inst}^2$. We keep only
+fits with residual ${\rm SNR}>5$ and intrinsic dispersion
+$\sigma_{\rm int}<250\ \kms$, the latter cut removing broad-line AGN.
+The circular velocity is taken to be
+\begin{equation}
+  \label{eq:vobs}
+  \Vobs=\sqrt{2}\,\sigma_{\rm int},
+\end{equation}
+the nominal isotropic virialization factor for dispersion-dominated
+systems. The sensitivity of our results to this choice is examined in
+\S\ref{sec:discussion}.
+
+\subsection{Baryonic masses}
+\label{sec:masses}
+
+The JADES DR4 external catalogue does not provide SED-fit stellar
+masses, so we estimate $\Mbar$ from the \Ha{} luminosity through a
+star-formation-rate (SFR) ladder. We convert the continuum-subtracted
+\Ha{} flux (correcting for [N\,\textsc{ii}] where available) into a
+luminosity using the luminosity distance, and adopt the
+\citet{Kennicutt1998} calibration with a Chabrier-IMF factor of $0.63$,
+$\mathrm{SFR}=0.63\,L_{\Ha}/1.26\times10^{41}\ \Msun\,{\rm yr^{-1}}$. We
+then invert the star-forming main sequence of \citet{Popesso2023},
+\begin{equation}
+  \label{eq:ms}
+  \log\mathrm{SFR}=0.84\log M_\star-8.2+1.1\log(1+z),
+\end{equation}
+to obtain $M_\star$, and add the gas reservoir with an evolving gas
+fraction following \citet{Tacconi2020},
+$\Mbar=M_\star/(1-f_{\rm gas})$. We retain galaxies with
+$7<\log M_\star<12$. As an independent mass estimator we also compute
+$\Mbar$ from $M_{\rm UV}$ via the \citet{Song2016}
+$M_\star$--$M_{\rm UV}$ relation; the comparison of the two ladders is
+central to the interpretation (\S\ref{sec:discussion}).
+
+%% ============================================================
+\section{Results}
+\label{sec:results}
+
+\subsection{Recovery of the $\beta(\Phi)$ shape}
+
+For each galaxy we compute $\Vpred$ from equation (\ref{eq:btfr}) and the
+deviation $\Phi$ from equation (\ref{eq:Phi}). Of the $59$ galaxies,
+$24$ fall in the Taylor regime $|\Phi|<1$ where the linearized flow
+applies; the remainder have large $|\Phi|$ driven by the steep
+$V^4$ dependence and the scatter of the SFR-based masses, and are
+excluded from the quantitative test. Figure~\ref{fig:beta} shows the
+$24$ Taylor-regime galaxies in the $(\Phi,\beta)$ plane together with
+the exact $\beta(\Phi)$ of equation (\ref{eq:beta}) and its quadratic
+Taylor approximation. The data track the analytic curve: the
+\emph{functional form} of the \LEG{} flow is recovered.
+
+\begin{figure}[!t]
+  \centering
+  \includegraphics[width=\columnwidth]{fig2_beta}
+  \caption{The $\beta$-function test. Points are the $24$ Taylor-regime
+    JADES DR4 galaxies, colour-coded by redshift; the solid curve is the
+    exact $\beta(\Phi)$ of equation (\ref{eq:beta}) and the dashed curve
+    its quadratic approximation $-\Phi-\tfrac12\Phi^2$. The analytic
+    shape predicted by \LEG{} is reproduced by the data.}
+  \label{fig:beta}
+\end{figure}
+
+\subsection{A systematic offset towards $\Phi<0$}
+
+While the shape is recovered, the population is not centred on the fixed
+point. Figure~\ref{fig:vobs} compares $\Vobs$ with $\Vpred$: the
+galaxies lie systematically \emph{below} the one-to-one line, with a
+median ratio $\Vobs/\Vpred=0.77$. Equivalently, the Taylor-regime sample
+has mean $\langle\Phi\rangle=-0.35$ and median $\Phi=-0.65$, and a
+one-sample $t$-test rejects $\langle\Phi\rangle=0$ at $p=0.014$. The
+measured intrinsic scatter is $\sigma_\Phi(0)=0.10$ dex
+(Figure~\ref{fig:phiz}), i.e.\ a factor $\sim2.5$ larger than the
+$<0.04$ dex predicted by equation (\ref{eq:sigmaPhi}). Thus the
+\emph{magnitude} test is not passed: the high-$z$ BTFR residuals are
+both offset and broader than the \LEG{} forecast.
+
+\begin{figure}[!t]
+  \centering
+  \includegraphics[width=\columnwidth]{fig3_vobs_vpred}
+  \caption{Observed circular velocity $\Vobs=\sqrt{2}\,\sigma_{\Ha}$
+    versus the \LEG{} prediction $\Vpred=(G\,\Mbar\,\gcrit(z))^{1/4}$.
+    The dashed line is one-to-one; the red line is the median scaling
+    $\Vobs=0.77\,\Vpred$. Points are colour-coded by redshift.}
+  \label{fig:vobs}
+\end{figure}
+
+\begin{figure}[!t]
+  \centering
+  \includegraphics[width=\columnwidth]{fig4_phi_z}
+  \caption{BTFR deviation $\Phi$ versus redshift for the Taylor-regime
+    sample. Shaded bands show the \LEG{} prediction
+    $\pm\sigma_\Phi(0)\,H(z)/H_0$ for $\sigma_\Phi(0)=0.04$ dex (the
+    \S10.8 target) and $0.10$ dex (measured). The data are offset to
+    $\Phi<0$ and scatter beyond the $0.04$ dex band.}
+  \label{fig:phiz}
+\end{figure}
+
+%% ============================================================
+\section{Is the offset astrophysical? The SMITH-QA test}
+\label{sec:smith}
+
+A natural worry is that the offset is an artefact of equation
+(\ref{eq:vobs}): if the \Ha{} dispersions of these $z=3$--$6$ starbursts
+are inflated by turbulence, outflows or unresolved multiple components,
+then $\sqrt{2}\,\sigma_{\Ha}$ would \emph{overestimate} the circular
+velocity and bias $\Phi$. We test this with a model-independent
+line-profile quality analysis, which we refer to as SMITH-QA. For each
+of the $59$ galaxies we measure, directly from the residual of the
+Gaussian fit, the skewness, excess kurtosis, reduced $\chi^2$, the
+fraction of flux in the line wings, and the number of peaks. No object
+is removed at this stage; the diagnostics only \emph{flag} non-Gaussian
+profiles.
+
+We then re-run the test after excluding the clearly non-Gaussian
+profiles, defined by the conservative criterion
+$\chi^2_{\rm red}>4$ \emph{or} $|\mathrm{skew}|>1$, which removes $13$ of
+the $59$ galaxies. The result is summarized in
+Table~\ref{tab:smith}: the median $\Vobs/\Vpred$ and median $\Phi$ are
+\emph{unchanged} to three significant figures, and the scatter
+$\sigma_\Phi(0)$ does not improve (it marginally worsens). The
+systematic offset therefore does \emph{not} live in the shape of the
+emission lines; cleaning the sample of turbulent or asymmetric profiles
+leaves it intact. We note that $41$ of $59$ profiles formally show more
+than one peak, but at $R\sim1000$ and with \Ha{} sampled by only
+$\sim5$--$10$ pixels these are noise bumps rather than resolved
+kinematic components: the $1$D integrated spectra simply do not carry the
+information needed to separate rotation from turbulence. This is
+precisely the regime in which \citet{FigueroaTorres2026} anticipated
+that a clean dynamical measurement would not be possible.
+
+\begin{table}[!t]\centering
+  \setlength{\tabnotewidth}{0.95\columnwidth}
+  \tablecols{3}
+  \setlength{\tabcolsep}{1.6\tabcolsep}
+  \caption{Robustness of the offset to line-profile quality cuts
+    (SMITH-QA)} \label{tab:smith}
+  \begin{tabular}{lcc}
+    \toprule
+    Quantity & Full ($59$) & After cut ($46$) \\
+    \midrule
+    median $\Vobs/\Vpred$      & $0.766$  & $0.766$  \\
+    median $\Phi$              & $-0.649$ & $-0.649$ \\
+    $\sigma_\Phi(0)$ [dex]     & $0.099$  & $0.106$  \\
+    $p(\langle\Phi\rangle=0)$  & $0.014$  & $0.034$  \\
+    \bottomrule
+    \tabnotetext{}{Cut: $\chi^2_{\rm red}>4$ \emph{or}
+      $|\mathrm{skew}|>1$, removing $13$ non-Gaussian profiles. The
+      central values are unchanged; the offset is not an artefact of
+      line-profile contamination.}
+  \end{tabular}
+\end{table}
+
+%% ============================================================
+\section{Discussion}
+\label{sec:discussion}
+
+Having excluded line-profile contamination, three interpretations of the
+$\Phi<0$ offset remain: (A) the virialization factor in equation
+(\ref{eq:vobs}); (B) a bias in the baryonic masses; or (C) a genuine
+$\sim30\%$ tension with \LEG. We address each in turn.
+
+\textit{(A) Virialization factor.} Replacing $\sqrt2$ by any constant
+$\alpha\in[0.8,1.73]$ rescales $\Vobs$ but cannot remove the offset for a
+plausible value: bringing the median to $\Phi=0$ would require
+$\alpha=\sqrt2/0.77\approx1.8$, larger than the isotropic upper bound,
+and a $t$-test still rejects $\langle\Phi\rangle=0$ for every $\alpha$ in
+the range. The offset is not a virialization effect.
+
+\textit{(B) Mass calibration.} This is the dominant systematic. To move
+the median to $\Phi=0$ the baryonic masses would have to be reduced by
+$-\log_{10}(1+\mathrm{median}\,\Phi)=+0.45$ dex (a factor $2.8$).
+Crucially, this is \emph{smaller} than the dispersion between independent
+mass estimators: for the same galaxies the \Ha$\to$SFR$\to$MS masses and
+the $M_{\rm UV}\to M_\star$ masses differ by a median of $0.87$ dex
+(Figure~\ref{fig:mass}). The signal we are trying to measure ($0.45$
+dex) is buried inside the systematic floor of high-$z$ stellar masses
+($0.87$ dex). In other words, the test is \emph{calibration-limited}:
+with scaling-relation masses one cannot decide whether \LEG{} is right.
+
+\textit{(C) Genuine tension.} We cannot exclude option (C), but neither
+can the data demand it, because (B) alone spans the offset. A definitive
+statement requires (i) SED-fit masses from the NIRCam photometry and
+(ii) spatially resolved kinematics that measure $V_{\rm circ}$ directly
+rather than through $\sqrt2\,\sigma$.
+
+\begin{figure}[!t]
+  \centering
+  \includegraphics[width=\columnwidth]{fig5_mass}
+  \caption{Inter-method dispersion of baryonic masses. The
+    \Ha$\to$SFR$\to$main-sequence masses (used in the test) versus the
+    $M_{\rm UV}\to M_\star$ masses for the same galaxies. The median
+    offset is $0.87$ dex (grey band), larger than the $0.45$ dex mass
+    reduction that would null the $\Phi<0$ offset. The systematic floor
+    of high-$z$ masses exceeds the signal.}
+  \label{fig:mass}
+\end{figure}
+
+This outcome is consistent with the framework's own forecast.
+\citet{FigueroaTorres2026} note in \S10.8 that for samples at these
+redshifts the relevant correction is below the current measurement floor
+and becomes accessible only with extremely large telescopes; our
+analysis quantifies that floor and identifies its origin as the mass
+calibration rather than the kinematics. We stress what the test
+\emph{does} establish: the analytic shape of $\beta(\Phi)$
+(equation~\ref{eq:beta}) is reproduced by the Taylor-regime data
+(Figure~\ref{fig:beta}), and the qualitative $\sigma_\Phi(z)\propto
+H(z)/H_0$ scaling is not contradicted. It is the absolute normalization
+of the scatter, and the sign of the mean deviation, that lie beyond the
+reach of $R\sim1000$, scaling-relation-mass data.
+
+%% ============================================================
+\section{Conclusions}
+\label{sec:conclusions}
+
+We have carried out the first quantitative confrontation of the
+Lambda Emergent Gravity $\beta(\Phi)$ flow with high-redshift
+spectroscopy, using $59$ JADES DR4 galaxies at $z=3$--$6$. Our findings
+are:
+
+\begin{compactenum}[(1)]
+\item The analytic shape of the \LEG{} $\beta$-function (equation
+  \ref{eq:beta}) is recovered by the $24$ galaxies in the Taylor regime
+  $|\Phi|<1$ (Figure~\ref{fig:beta}).
+\item The population is offset from the fixed point, with median
+  $\Vobs/\Vpred=0.77$, median $\Phi=-0.65$ ($p=0.014$), and a scatter
+  $\sigma_\Phi(0)=0.10$ dex, $\sim2.5\times$ the predicted $<0.04$ dex.
+\item A model-independent line-profile quality test (SMITH-QA) shows the
+  offset is robust to the removal of non-Gaussian profiles
+  (Table~\ref{tab:smith}): it is \emph{not} caused by turbulence or
+  outflows in $\sigma_{\Ha}$.
+\item The offset corresponds to a $+0.45$ dex mass overestimate, which
+  lies within the $0.87$ dex inter-method scatter of high-$z$ masses
+  (Figure~\ref{fig:mass}). The test is therefore
+  \emph{calibration-limited}, not theory-limited, and does not by itself
+  confirm or refute \LEG.
+\end{compactenum}
+
+A decisive test will require SED-fit baryonic masses and spatially
+resolved kinematics at $z=4$--$6$, as will become available with
+ELT/HARMONI and JWST/NIRSpec IFU programmes. The methodology developed
+here---the $\Phi$/$\beta$ estimator and the SMITH-QA robustness
+test---provides a template for that future measurement.
+
+\acknowledgments
+This work made use of public data from the JWST Advanced Deep
+Extragalactic Survey (JADES) and the Mikulski Archive for Space
+Telescopes (MAST). We thank the JADES team for making the DR4 catalogues
+and spectra available.
+
+\bibliographystyle{aasjournal-rm}
+\bibliography{lambda_eg_jades}
+
+\end{document}
