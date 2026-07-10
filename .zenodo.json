@@ -13,8 +13,7 @@
   ],
   "license": "CC-BY-4.0",
   "related_identifiers": [
-    { "identifier": "10.5281/zenodo.19784004", "relation": "references", "scheme": "doi" },
-    { "identifier": "10.5281/zenodo.20369196", "relation": "references", "scheme": "doi" },
+    { "identifier": "10.5281/zenodo.19784004", "relation": "isNewVersionOf", "scheme": "doi" },
     { "identifier": "10.5281/zenodo.19674722", "relation": "references", "scheme": "doi" },
     { "identifier": "10.5281/zenodo.19364572", "relation": "references", "scheme": "doi" },
     { "identifier": "10.5281/zenodo.19013213", "relation": "references", "scheme": "doi" }
