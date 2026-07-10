@@ -26,14 +26,17 @@ J. Pablo Figueroa Torres. This repository consolidates the earlier scattered rec
 
 **J. Pablo Figueroa Torres** — ORCID [0009-0005-5297-8777](https://orcid.org/0009-0005-5297-8777)
 
-## Prior records (lineage)
+## Lineage
 
-This consolidated record supersedes and cites the following earlier Zenodo entries:
+**Framework** — the same document across **6 versions with their modifications**,
+grouped under a single **concept DOI** (cite this one for all framework versions):
+
+> **[10.5281/zenodo.19784004](https://doi.org/10.5281/zenodo.19784004)**
+
+**Related records by the same author** (separate documents):
 
 | Record | DOI |
 |---|---|
-| Framework — concept (cite all versions) | [10.5281/zenodo.19784004](https://doi.org/10.5281/zenodo.19784004) |
-| Framework — v6 | [10.5281/zenodo.20369196](https://doi.org/10.5281/zenodo.20369196) |
 | Emergent gravity / De Sitter | [10.5281/zenodo.19674722](https://doi.org/10.5281/zenodo.19674722) |
 | Coherence model | [10.5281/zenodo.19364572](https://doi.org/10.5281/zenodo.19364572) |
 | Spacetime ontology | [10.5281/zenodo.19013213](https://doi.org/10.5281/zenodo.19013213) |
