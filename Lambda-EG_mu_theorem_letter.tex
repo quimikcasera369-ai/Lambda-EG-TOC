@@ -1,0 +1,182 @@
+\documentclass[11pt]{article}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,linkcolor=blue!45!black,citecolor=blue!45!black,urlcolor=blue!45!black,pdfpagemode=UseNone]{hyperref}
+
+\hypersetup{
+  pdftitle={A geometric characterization of the standard MOND interpolating function},
+  pdfauthor={J. Pablo Figueroa Torres},
+  pdfsubject={Modified Newtonian Dynamics (MOND); interpolating function; isotropy},
+  pdfkeywords={MOND; interpolating function; isotropy; solid angle; emergent gravity; radial acceleration relation; baryonic Tully-Fisher relation}
+}
+
+\newtheorem{axiom}{Axiom}
+\newtheorem*{theorem*}{Theorem}
+\theoremstyle{plain}
+
+\setlength{\parindent}{1.2em}
+\setlength{\parskip}{0.2em}
+
+\title{\vspace{-2em}A geometric characterization of the standard MOND interpolating function:\\[2pt]
+$\mu(x) = x/\sqrt{1+x^2}$ as the isotropic distribution of $\cot\theta$}
+\author{J.\ Pablo Figueroa Torres\\[2pt]
+\normalsize Independent Researcher --- \href{https://orcid.org/0009-0005-5297-8777}{ORCID: 0009-0005-5297-8777}}
+\date{July 6, 2026 --- v1}
+
+\begin{document}
+\maketitle
+\vspace{-1.5em}
+
+\noindent\textbf{Abstract.} The interpolating function $\mu(x)$ of Modified Newtonian Dynamics (MOND) phenomenology has been chosen empirically for four decades; standard reviews state explicitly that no derivation from first principles exists. We point out an exact identity: the standard interpolating function, $\mu(x) = x/\sqrt{1+x^2}$, is the cumulative distribution of $\cot\theta$ for directions distributed isotropically on the hemisphere --- equivalently, the threshold density it implies, $\mu'(\Lambda_c) = (1+\Lambda_c^2)^{-3/2}$, is exactly the isotropic probability density of the ratio of longitudinal to transverse field projections. Operationally, $\mu(x)$ is the solid-angle fraction of channels activated by the tilt criterion $|\mathbf{g}\times\hat n| > a_0|\hat n\cdot\hat g|$: misalignment with the local field beyond $\arctan(a_0/g)$. The statement is elementary spherical geometry with no free parameters; $a_0$ enters only as the unit of the threshold. We delimit the content precisely: any monotone interpolating function is \emph{some} solid-angle fraction (the correspondence gate $\leftrightarrow$ $\mu$ is one-to-one), so the specificity of the standard $\mu$ is that its threshold variable is the canonical projection ratio $\cot\theta$, and its gate is a linear comparison of field projections --- the only such gate among the simple projection criteria (tilt, magnitude, longitudinal, perpendicular) with the correct MOND limits, and the one that rigidly fixes the member $\alpha=2$ of the empirical family $\mu_\alpha = x/(1+x^\alpha)^{1/\alpha}$. As corollaries, the flow function $\beta(\Phi) = -\Phi(2+\Phi)(1+\Phi)/[2+\Phi(2+\Phi)]$ follows exactly, with attractor slope $\beta'(0)=-1$ and curvature $\kappa=1/2$, making the baryonic Tully--Fisher relation a dynamical attractor. A Monte Carlo over $10^7$ hard gates reproduces $\beta'(0)=-0.99$, $\kappa=0.47$ with no tuning. All symbolic and numerical results are reproducible from the scripts archived with this letter.
+
+\medskip
+\noindent\textbf{Keywords:} MOND; interpolating function; isotropy; solid angle; emergent gravity; radial acceleration relation; baryonic Tully--Fisher relation
+
+\section{Introduction}\label{sec:intro}
+
+MOND phenomenology [Milgrom 1983a,b,c] accounts for galactic rotation curves through a relation $\mu(g/a_0)\,\mathbf{g} = \mathbf{g}_N$ (or its inverted form), where the interpolating function $\mu(x)$ satisfies $\mu\to x$ for $x\ll 1$ and $\mu\to 1$ for $x\gg 1$, and $a_0 \simeq 1.2\times10^{-10}\ \mathrm{m\,s^{-2}}$. The functional form of $\mu$ has always been an empirical input: Milgrom (1983a) proposed the simple ($x/(1+x)$) and standard ($x/\sqrt{1+x^2}$) forms as convenient examples; AQUAL [Bekenstein \& Milgrom 1984] requires only the asymptotic limits; and the Living Review by Famaey \& McGaugh (2012) states that no derivation of $\mu$ from first principles is available. The radial-acceleration relation [McGaugh, Lelli \& Schombert 2016a] measured on the SPARC sample [Lelli, McGaugh \& Schombert 2016b] has sharpened the empirical constraints on $\mu$ without changing its status as an ansatz.
+
+This letter proves an elementary identity which, to our knowledge, has not appeared in the literature: \textbf{the standard interpolating function is the cumulative distribution of $\cot\theta$ under isotropy.} If gravitational ``channels'' are distributed isotropically in direction and a channel is active precisely when its misalignment with the local field exceeds a critical tilt $\arctan(a_0/g)$, then the active fraction is $\mu(x)=x/\sqrt{1+x^2}$ with $x=g/a_0$, exactly. No parameter is adjusted; the computation is a one-line integral over a spherical cap. We are equally explicit about what is \emph{not} special: any monotone interpolating function can be written as a solid-angle fraction under some angular gate, because the correspondence between monotone gates and monotone $\mu$'s is one-to-one (\S\ref{sec:uniqueness}). The non-trivial content is \emph{which} threshold variable the standard function singles out --- the ratio of longitudinal to transverse projections, $\cot\theta$, the canonical dimensionless coordinate of a direction relative to the field --- and that the corresponding gate is a linear comparison of field projections, unlike the gates implied by the other members of the empirical $\mu_\alpha$ family.
+
+We emphasize the scope honestly. The theorem is purely geometric: it converts the choice of $\mu$ into the choice of an activation criterion, and shows that criterion to be uniquely selective within a natural class. The physical origin of the tilt criterion --- why dissipation competes in precisely this projection --- is a separate dynamical question that we take up in a forthcoming companion paper, building on the emergent-gravity framework already presented in [Figueroa Torres 2026]; it is not required for any statement made here. Likewise, the value of $a_0$ is not derived here; it enters only as the unit of the threshold.
+
+\section{Axioms and theorem}\label{sec:theorem}
+
+Let $\mathbf{g}$ be the local gravitational field, $g=|\mathbf{g}|$, $x\equiv g/a_0$, and let $\hat n$ denote the direction of a channel (the microscopic degree of freedom whose activation is at stake; its nature is not needed for the theorem).
+
+\begin{axiom}[isotropy]
+Channels carry unoriented directions (axes): $\hat n$ and $-\hat n$ label the same channel. The space of channel directions is therefore the hemisphere $\hat n\cdot\hat g\geq 0$ --- not half of the possibilities but all of them --- with the rotation-invariant (Haar) measure $\sin\theta\,d\theta\,d\phi$, where $\theta\in[0,\pi/2]$ is the angle between $\hat n$ and $\hat g$. (Equivalently, on the full sphere the criterion below is written with $|\hat n\cdot\hat g|$ and every statement is unchanged.)
+\end{axiom}
+
+\begin{axiom}[tilt activation]
+A channel is active if and only if
+\begin{equation*}\tag{1}\label{eq:1}
+|\mathbf{g}\times\hat n| > a_0|\hat n\cdot\hat g|,
+\end{equation*}
+equivalently $g\sin\theta > a_0\cos\theta$, i.e., misalignment beyond the critical cone
+\begin{equation*}\tag{2}\label{eq:2}
+\theta_0(x) = \arctan(1/x).
+\end{equation*}
+\end{axiom}
+
+\begin{theorem*}
+Under Axioms 1--2, the active fraction of channels is
+\begin{equation*}\tag{3}\label{eq:3}
+\mu(x) = \frac{\Omega_{\text{active}}}{\Omega_{\text{total}}} = \int_{\arctan(1/x)}^{\pi/2}\sin\theta\,d\theta = \cos\big(\arctan(1/x)\big) = \frac{x}{\sqrt{1+x^2}}.
+\end{equation*}
+\end{theorem*}
+
+\begin{proof}
+The measure of Axiom 1 normalizes to $\int_0^{\pi/2}\sin\theta\,d\theta=1$ on the hemisphere ($\phi$ integrates out). Axiom 2 activates the band $\theta>\theta_0$, whose measure is $\cos\theta_0$ --- the complement of the spherical cap of half-angle $\theta_0$. With $\theta_0=\arctan(1/x)$, $\cos\theta_0 = x/\sqrt{1+x^2}$.
+\end{proof}
+
+Both MOND limits are immediate, and the small-$x$ expansion is
+\begin{equation*}\tag{4}\label{eq:4}
+\mu(x) = x - \tfrac12 x^3 + \mathcal{O}(x^5), \qquad \mu(x\to\infty)\to 1.
+\end{equation*}
+
+Two remarks. (i) At $g=a_0$ the critical cone is exactly $45^\circ$: the acceleration scale marks the tilt at which alignment and misalignment are balanced. (ii) \textbf{The central identity.} Equivalently, $\mu(x)$ is the fraction of solid angle with $\cot\theta < x$, and the threshold density it implies is
+\begin{equation*}\tag{5}\label{eq:5}
+P(\Lambda_c) = \mu'(\Lambda_c) = (1+\Lambda_c^2)^{-3/2}, \qquad \int_0^\infty P\,d\Lambda_c = 1,
+\end{equation*}
+which is exactly the probability density of $\cot\theta$ for isotropic directions. This --- not the bare statement ``a solid-angle fraction'' --- is where the specific content lives: the standard interpolating function is the one whose hard thresholds are distributed as the projection ratio $\cot\theta = (\hat n\cdot\hat g\text{-component})/(\text{transverse component})$ of an isotropic ensemble, the canonical dimensionless coordinate of a direction relative to the field. Other interpolating functions correspond, through the same construction, to threshold variables that are not natural functions of the direction (\S\ref{sec:uniqueness}).
+
+\section{Uniqueness within the class of simple projection gates}\label{sec:uniqueness}
+
+The tilt criterion is not one arbitrary choice among many. Consider the four simple activation criteria that can be built from the projections of $\mathbf{g}$ on $\hat n$ (all thresholds in units of $a_0$; all fractions computed with the measure of Axiom 1):
+
+\begin{center}
+\begin{tabular}{@{}l l l p{4.1cm}@{}}
+\toprule
+Gate & Criterion & Active fraction & Failure \\
+\midrule
+\textbf{T (tilt)} & $g\sin\theta > a_0\cos\theta$ & $x/\sqrt{1+x^2}$ & --- (both limits, analytic, monotonic) \\[4pt]
+M (magnitude) & $g > a_0\cos\theta$ & $x$ for $x\leq 1$; $1$ for $x>1$ & kink at $x=1$; $\beta\equiv 0$, no attractor (see \S\ref{sec:corollaries}) \\[4pt]
+L (longitudinal) & $g\cos\theta > a_0$ & $0$ for $x\leq 1$; $1-1/x$ for $x>1$ & no deep-MOND limit ($\mu\equiv0$ at low $x$) \\[4pt]
+P (perpendicular) & $g\sin\theta > a_0$ & $0$ for $x\leq 1$; $\sqrt{1-1/x^2}$ for $x>1$ & no deep-MOND limit \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{equation*}\tag{6}\label{eq:6}
+\mu_M(x\leq1) = x, \qquad \mu_L(x>1) = 1-\frac1x, \qquad \mu_P(x>1) = \sqrt{1-\frac{1}{x^2}}.
+\end{equation*}
+
+Only the tilt gate produces a $\mu$ that is analytic, strictly increasing, and linear in $x$ as $x\to 0$.
+
+We now state precisely how far uniqueness extends, and --- equally important --- how far it does not. For any activation rule ``active iff $x>f(\theta)$'' with $f$ monotonically decreasing in the tilt angle, $\mu(x)=\cos(f^{-1}(x))$ under the isotropic measure. This correspondence is one-to-one: every monotone interpolating function is a solid-angle fraction under its own unique gate. It therefore selects nothing by itself --- the simple function $x/(1+x)$, for instance, arises from the gate $f_1(\theta)=\cos\theta/(1-\cos\theta)$. What the bijection \emph{does} deliver is a rigidity lemma: demanding the standard $\mu$ forces
+\begin{equation*}\tag{7}\label{eq:7}
+f(\theta) = \cot\theta \qquad \text{(no freedom)},
+\end{equation*}
+which is precisely criterion~\eqref{eq:1} --- so any microscopic mechanism that produces the standard interpolating function through monotone angular gating must implement the tilt comparison, a strong constraint on model building. The selection content proper remains the four-gate result above, sharpened by a structural observation. The general member of the empirical family $\mu_\alpha(x) = x/(1+x^\alpha)^{1/\alpha}$ corresponds, through the bijection, to the threshold variable
+\begin{equation*}\tag{7$'$}\label{eq:7prime}
+f_\alpha(\theta) = \frac{\cos\theta}{(1-\cos^\alpha\theta)^{1/\alpha}}, \qquad f_2 = \cot\theta,
+\end{equation*}
+and only for $\alpha=2$ does the threshold variable equal the projection ratio of the direction --- the longitudinal over the transverse component, $\cot\theta$ --- so that the gate takes the two-projection form of criterion~\eqref{eq:1}. Conversely, the tilt gate leaves no family freedom: it produces exactly the $\alpha=2$ member. We deliberately do not claim uniqueness over broader classes of ``simple'' gates (e.g., arbitrary linear combinations of projections and magnitudes) without specifying such a class precisely; the four criteria of the table are the natural single-projection comparisons, and~\eqref{eq:7prime} identifies what is structurally special about the standard member within the empirical family. Honest boundaries: the mirror orientation (activation when aligned) admits its own solution $\tilde f \neq \cot\theta$ and is excluded on physical rather than geometric grounds; rules that are non-monotone or depend on variables other than the tilt angle are outside the claim.
+
+The failure of gate M is instructive and subtle: $\mu_M = x$ satisfies both MOND limits in a piecewise sense, yet it is dynamically empty --- because $\mu_M - x\mu_M' \equiv 0$, the flow function of \S\ref{sec:corollaries} vanishes identically and the Tully--Fisher relation does not attract. Matching asymptotic limits is not sufficient; the curvature of $\mu$ carries the dynamics.
+
+\section{Corollaries: the flow \texorpdfstring{$\beta(\Phi)$}{beta(Phi)} and the BTFR attractor}\label{sec:corollaries}
+
+Within the screened scalar--tensor framework of [Figueroa Torres 2026], departures from the baryonic Tully--Fisher relation (BTFR) are governed by a flow in log-expansion time with flow function
+\begin{equation*}\tag{8}\label{eq:8}
+\beta(u_0) = -\,\frac{u_0(\mu-u_0\mu')}{\mu(\mu+u_0\mu')},
+\end{equation*}
+evaluated on the interpolating function. Substituting the theorem's $\mu$ and changing variable to $\Phi=\sqrt{1+u_0^2}-1$ gives, exactly,
+\begin{equation*}\tag{9}\label{eq:9}
+\beta(u_0) = -\frac{u_0^2\sqrt{1+u_0^2}}{2+u_0^2}, \qquad \beta(\Phi) = -\frac{\Phi(2+\Phi)(1+\Phi)}{2+\Phi(2+\Phi)} = -\Phi - \tfrac12\Phi^2 + \mathcal{O}(\Phi^3).
+\end{equation*}
+Hence $\beta'(0)=-1$ (linear attractor: the BTFR is dynamically stable against perturbations) and quadratic curvature $\kappa=1/2$, both now derived from Axioms 1--2 rather than postulated.
+
+Two conventions are pinned explicitly to avoid ambiguity. First, all accelerations in this letter --- including the BTFR departure variable $\Phi$ --- are normalized to $a_0$, the threshold unit of Axiom 2. The slope $\beta'(0)$ and curvature $\kappa$ are dimensionless ratios and are therefore invariant under a rescaling of that unit; only the location of the BTFR normalization is not. The framework paper [Figueroa Torres 2026] is written instead in units of its screening scale $g_{\text{crit}} = a_0/4\pi$ --- a factor-of-$4\pi$ difference in the acceleration unit --- and a correction propagating this rescaling through that paper is in preparation there; it does \emph{not} affect any result derived in this letter, which is self-contained in $a_0$-units throughout. Second, with the flow parameter $\lambda=\ln(H/H_0)$ of [Figueroa Torres 2026, \S10], the near-fixed-point solution of~\eqref{eq:9} is $\Phi(\lambda)=\Phi_0 e^{-\lambda} = \Phi_0 H_0/H$: the fixed point is a UV attractor, and the intrinsic BTFR scatter tightens toward high redshift,
+\begin{equation*}\tag{10}\label{eq:10}
+\sigma_\Phi(z) = \sigma_\Phi(0)\,\frac{H_0}{H(z)} \approx 0.023\ \text{dex at } z=2 \text{ for } \sigma_\Phi(0)=0.07\ \text{dex,}
+\end{equation*}
+assuming a flat $\Lambda$CDM background with $\Omega_m=0.3$ (so that $H(z)/H_0=\sqrt{\Omega_m(1+z)^3+1-\Omega_m}$). We flag explicitly a distinction that is easy to conflate: \eqref{eq:10} concerns the width around the BTFR and runs opposite to the zero-point evolution $V(z)\propto H(z)^{1/4}$, which rises with redshift --- both are simultaneous consequences of the same drift of the acceleration scale. Equation~\eqref{eq:10} holds for the pure flow (fixed baryonic configuration); the observable scatter of real populations acquires in addition the evolution of $g_{\text{bar}}(z)$, which lies outside the flow and is treated separately in the framework erratum.
+
+\smallskip
+\noindent\textbf{Numerical verification (no tuning).} A Monte Carlo ensemble of $10^7$ hard gates with isotropic directions (thresholds $\Lambda_c=\cot\theta$, $\cos\theta$ uniform on $[0,1]$) yields the empirical $\mu$, $\mu'$ and, through~\eqref{eq:8}, the ensemble $\beta$: point-by-point agreement with the closed form~\eqref{eq:9} at the level of the Monte Carlo noise (max.\ deviation $4.9\times10^{-3}$), with $\beta'(0) = -0.9926$ and $\kappa=+0.4739$ against pre-declared acceptance bands $-1.00\pm0.02$ and $+0.50\pm0.05$. One finite-$N$ systematic is declared: the $u\to0$ region is ill-conditioned (the numerator $\mu-u\mu'\sim u^3$ competes with Monte Carlo noise), which biases the fitted $\kappa$ slightly low; the point-by-point comparison is therefore restricted to $u\in[0.1,1.2]$ and the conditioning analysis is documented in the archived scripts. As a foil, an exponential threshold distribution --- equally normalized, not isotropic --- returns $(\beta'(0),\kappa) = (-2.37,-7.24)$. Since $\beta$ is a functional of $\mu$, this is a sensitivity check on the pipeline rather than independent evidence for isotropy: the specificity of the isotropic ensemble is carried by identity~\eqref{eq:5}, not by the Monte Carlo.
+
+\section{Discussion}\label{sec:discussion}
+
+\noindent\textbf{What is claimed.} (i) The standard MOND interpolating function is exactly the cumulative isotropic distribution of the projection ratio $\cot\theta$ --- equivalently, the solid-angle fraction under the tilt gate (Theorem, eqs.~\eqref{eq:3} and~\eqref{eq:5}); (ii) since the correspondence gate $\leftrightarrow$ $\mu$ is one-to-one, this entails a rigidity lemma --- any mechanism producing the standard $\mu$ through monotone angular gating must implement the tilt comparison (eq.~\eqref{eq:7}) --- while the selection content proper is the four-gate result plus the structural fact that only the $\alpha=2$ threshold variable is the projection ratio $\cot\theta$ (eqs.~\eqref{eq:6},~\eqref{eq:7prime}); (iii) the BTFR attractor structure ($\beta'(0)=-1$, $\kappa=1/2$) follows with no further input (eq.~\eqref{eq:9}).
+
+\noindent\textbf{What is not claimed.} The theorem does not by itself derive MOND from first principles: it relocates the empirical content of $\mu$ into an activation rule and shows that rule to be geometrically distinguished. The dynamical origin of the tilt criterion (as a competition between a decoherence rate and a re-coherence rate, which also fixes the scale of $a_0$) is the subject of a forthcoming companion paper and is logically independent of the present result. The value of $a_0$ is an input here.
+
+\noindent\textbf{Relation to previous work.} Derivations of an interpolating function from a physical mechanism do exist, and we state them precisely. Milgrom (1999) observed that the Unruh temperature excess of an accelerated observer in de Sitter space suggests $\hat\mu(x) = \sqrt{1+(2x)^{-2}} - (2x)^{-1}$; Klinkhamer \& Kopp (2011) and Klinkhamer (2012) obtained exactly that $\hat\mu$ --- together with the Bekenstein--Milgrom modified Poisson equation and $a_0 = 4\pi(c/\hbar)k_B T_{\min}$ --- from entropic gravity with a minimum temperature; Trippe (2013) obtained the simple function $x/(1+x)$ from a toy model of virtual massive gravitons; Pazy (2013) related $\mu$ to a ratio of holographic degrees of freedom without a closed form. Other frameworks obtain MOND-like behaviour without an interpolating function: emergent gravity yields $g_D=\sqrt{g_B a_0/6}$ [Verlinde 2017], superfluid dark matter postulates the MONDian phonon action $P(X)\propto X\sqrt{|X|}$ [Berezhiani \& Khoury 2015], and quantum-gravity arguments recover the scale $a_0$ and the deep-MOND regime with the transition left unspecified [Smolin 2017]. None of these derives the standard $\mu(x)=x/\sqrt{1+x^2}$, and none proceeds by counting directions: the mechanisms are thermodynamic or field-theoretic, not solid-angle geometry. The present result is therefore new on two specific counts: it is the standard function that emerges, and it emerges from isotropy alone. That the entropic route selects $\hat\mu$ while direction counting selects the standard $\mu$ makes the transition region of the radial-acceleration relation a potential observational discriminant between the two mechanisms.
+
+\noindent\textbf{Falsifiability.} The construction is rigid: isotropy plus a hard tilt threshold give exactly $x/\sqrt{1+x^2}$, not a family. Data preferring a materially different $\mu$ (e.g., the simple function at high accelerations) would falsify the axioms as stated, or force a measurable anisotropy of the ensemble.
+
+\section{Data availability}\label{sec:data}
+
+All results are reproducible from the scripts archived with this letter. \texttt{verificacion\_letter.py} re-derives every numbered equation symbolically (sympy) and runs a $10^6$ Monte Carlo smoke test; the canonical derivations are \texttt{derivacion\_mu\_angulo\_solido\_gates\_direccionales.py} (the four gates of \S\ref{sec:uniqueness}, exact), \texttt{derivacion\_beta\_ensamble\_gates\_reduccion\_sympy.py} (the reduction of \S\ref{sec:corollaries}, exact via sympy), and \texttt{derivacion\_beta\_ensamble\_gates\_montecarlo\_estable.py} (the $10^7$ Monte Carlo of \S\ref{sec:corollaries}, verified to 50 digits with mpmath, with pre-declared acceptance bands and the anisotropic negative control; fixed seed). No proprietary data are used; the observational constraints cited are from the published SPARC literature. A record of the prior-literature search underlying the novelty claims of \S\ref{sec:discussion} is archived as \texttt{prior\_work\_verification.md}.
+
+\noindent\textbf{Funding and competing interests.} This work received no external funding. The author declares no competing interests.
+
+\section{References}\label{sec:refs}
+
+\begin{itemize}[leftmargin=1.6em,itemsep=2pt]
+\item Bekenstein, J., Milgrom, M. 1984, ApJ 286, 7
+\item Berezhiani, L., Khoury, J. 2015, Phys.\ Rev.\ D 92, 103510 [\href{https://arxiv.org/abs/1507.01019}{arXiv:1507.01019}]
+\item Famaey, B., McGaugh, S. 2012, Living Rev.\ Relativ.\ 15, 10 [\href{https://arxiv.org/abs/1112.3960}{arXiv:1112.3960}]
+\item Figueroa Torres, J.\ P.\ 2026, \emph{Lambda EG: Emergent Gravitational Coherence and Galactic Dynamics Without Particle Dark Matter}, Zenodo preprint, \href{https://doi.org/10.5281/zenodo.19784004}{doi:10.5281/zenodo.19784004}
+\item Klinkhamer, F.\ R., Kopp, M.\ 2011, Mod.\ Phys.\ Lett.\ A 26, 2783 [\href{https://arxiv.org/abs/1104.2022}{arXiv:1104.2022}]
+\item Klinkhamer, F.\ R.\ 2012, Mod.\ Phys.\ Lett.\ A 27, 1250056 [\href{https://arxiv.org/abs/1201.4160}{arXiv:1201.4160}]
+\item Lelli, F., McGaugh, S., Schombert, J.\ 2016b, AJ 152, 157
+\item McGaugh, S., Lelli, F., Schombert, J.\ 2016a, Phys.\ Rev.\ Lett.\ 117, 201101
+\item Milgrom, M.\ 1983a, ApJ 270, 365; 1983b, ApJ 270, 371; 1983c, ApJ 270, 384
+\item Milgrom, M.\ 1999, Phys.\ Lett.\ A 253, 273 [\href{https://arxiv.org/abs/astro-ph/9805346}{arXiv:astro-ph/9805346}]
+\item Pazy, E.\ 2013, Phys.\ Rev.\ D 87, 084063 [\href{https://arxiv.org/abs/1302.4411}{arXiv:1302.4411}]
+\item Smolin, L.\ 2017, Phys.\ Rev.\ D 96, 083523 [\href{https://arxiv.org/abs/1704.00780}{arXiv:1704.00780}]
+\item Trippe, S.\ 2013, J.\ Korean Astron.\ Soc.\ 46, 41 [\href{https://arxiv.org/abs/1303.7071}{arXiv:1303.7071}]
+\item Verlinde, E.\ 2017, SciPost Phys.\ 2, 016 [\href{https://arxiv.org/abs/1611.02269}{arXiv:1611.02269}]
+\end{itemize}
+
+\end{document}
