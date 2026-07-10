@@ -28,10 +28,20 @@ J. Pablo Figueroa Torres. This repository consolidates the earlier scattered rec
 
 ## Lineage
 
-**Framework** — the same document across **6 versions with their modifications**,
-grouped under a single **concept DOI** (cite this one for all framework versions):
+**Framework** — the same document across **6 versions** (Zenodo record, uploaded
+manually), grouped under a single **concept DOI** — cite this one for all versions
+(it always resolves to the latest):
 
-> **[10.5281/zenodo.19784004](https://doi.org/10.5281/zenodo.19784004)**
+> **[10.5281/zenodo.19784004](https://doi.org/10.5281/zenodo.19784004)** — concept DOI (all framework versions)
+
+| Version | DOI | Date |
+|---|---|---|
+| v6 | [10.5281/zenodo.20369196](https://doi.org/10.5281/zenodo.20369196) | 2026-05-24 |
+| v5 | [10.5281/zenodo.20190073](https://doi.org/10.5281/zenodo.20190073) | 2026-05-14 |
+| v4 | [10.5281/zenodo.20066729](https://doi.org/10.5281/zenodo.20066729) | 2026-05-07 |
+| v3 | [10.5281/zenodo.20046966](https://doi.org/10.5281/zenodo.20046966) | 2026-05-05 |
+| v2 | [10.5281/zenodo.19974554](https://doi.org/10.5281/zenodo.19974554) | 2026-04-02 |
+| v1 | (initial version) | — |
 
 **Related records by the same author** (separate documents):
 
