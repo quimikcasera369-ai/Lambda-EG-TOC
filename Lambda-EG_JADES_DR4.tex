@@ -1,6 +1,5 @@
 %% ============================================================
-%% Lambda-EG x JADES DR4 -- manuscrito para RMxAA
-%% Clase rmxaa (RMxAA-journal/RMxAA-macros, v3)
+%% Lambda-EG x JADES DR4 -- preprint
 %% Compilar:  pdflatex -> bibtex -> pdflatex -> pdflatex
 %% ============================================================
 \documentclass{rmxaa}
@@ -11,6 +10,15 @@
 \usepackage[svgnames]{xcolor}
 \hypersetup{colorlinks, linkcolor=MediumBlue, citecolor=black,
             urlcolor=MediumBlue}
+
+%% --- Preprint: neutraliza el membrete de revista de la primera pagina ---
+\makeatletter
+\renewcommand{\ps@rmaafirstpage}{%
+  \renewcommand\@oddfoot{\hfil\thepage}%
+  \renewcommand\@evenfoot{\thepage\hfil}%
+  \renewcommand\@oddhead{}%
+  \renewcommand\@evenhead{}}
+\makeatother
 
 %% --- Macros utiles ---
 \newcommand{\gcrit}{g_{\rm crit}}
