@@ -5,7 +5,7 @@ authors:
   - family-names: "Figueroa Torres"
     given-names: "J. Pablo"
     orcid: "https://orcid.org/0009-0005-5297-8777"
-version: "1.0.0"
+version: "1.1.0"
 date-released: "2026-07-09"
 doi: 10.5281/zenodo.21287072
 license: CC-BY-4.0
