@@ -11,9 +11,13 @@ J. Pablo Figueroa Torres. This repository consolidates the earlier scattered rec
 
 ## Contents (this version)
 
-- **Framework (v7)** — `Lambda-EG_framework_v7.pdf` — covariant scalar–tensor
+- **Framework (v8)** — `Lambda-EG_framework_v8.pdf` — covariant scalar–tensor
   emergent-gravity framework. `g_crit` derived from De Sitter spectral geometry;
-  the BTFR zero-point uses **a₀ = 4π·g_crit** (v7 correction).
+  the BTFR zero-point uses **a₀ = 4π·g_crit**. The **v8** revision incorporates the
+  reviewer-response corrections: screened scalar–tensor / deep-MOND framing (not an
+  exact AQUAL reduction), scalar spectral-gap origin of `√3`, complete kinetic
+  function `μ(x)=x/√(1+x²)`, corrected Cassini (`α≳8×10⁶`) and Bullet (`√(π/2)`)
+  estimates, and stress-energy lensing.
 - **JADES DR4** — `Lambda-EG_JADES_DR4.pdf` — confrontation with high-redshift JWST data.
 - **µ-theorem (letter)** — `Lambda-EG_mu_theorem_letter.pdf` — geometric characterization
   of the standard MOND interpolating function `μ(x)=x/√(1+x²)` as the isotropic
@@ -30,7 +34,7 @@ J. Pablo Figueroa Torres. This repository consolidates the earlier scattered rec
 
 ## Lineage
 
-**Framework** — the same document across **6 versions** (Zenodo record, uploaded
+**Framework** — the same document across **8 versions** (Zenodo record, uploaded
 manually), grouped under a single **concept DOI** — cite this one for all versions
 (it always resolves to the latest):
 
@@ -38,6 +42,8 @@ manually), grouped under a single **concept DOI** — cite this one for all vers
 
 | Version | DOI | Date |
 |---|---|---|
+| v8 | (this revision) | 2026-07-18 |
+| v7 | [10.5281/zenodo.21307522](https://doi.org/10.5281/zenodo.21307522) | 2026-07-11 |
 | v6 | [10.5281/zenodo.20369196](https://doi.org/10.5281/zenodo.20369196) | 2026-05-24 |
 | v5 | [10.5281/zenodo.20190073](https://doi.org/10.5281/zenodo.20190073) | 2026-05-14 |
 | v4 | [10.5281/zenodo.20066729](https://doi.org/10.5281/zenodo.20066729) | 2026-05-07 |
