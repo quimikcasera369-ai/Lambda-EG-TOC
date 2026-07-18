@@ -16,6 +16,7 @@
 \usepackage{amsmath,amssymb,amsfonts,mathtools}
 \usepackage{bm}
 \usepackage{graphicx}
+\graphicspath{{figuras/}{./}}
 \usepackage{booktabs}
 \usepackage{xcolor}
 \usepackage{hyperref}
@@ -131,6 +132,26 @@ framework combining three properties:
       of the De~Sitter horizon, linking infrared gravitational phenomenology to the
       cosmological background without free parameters.
 \end{enumerate}
+
+Figure~\ref{fig:concept} summarizes the logical structure of the framework, from the
+action to the observational phenomenology. The fundamental dynamical object of
+$\Lambda$-EG is the scalar field $\phi$: the spectral construction of
+Section~\ref{sec:gcrit} fixes the critical scale, while decoherence in the
+De~Sitter background provides its physical interpretation. What distinguishes $\Lambda$-EG
+from a scalar--tensor theory with a phenomenologically chosen potential is precisely this:
+the low-acceleration scale $g_{\rm crit}$ is \emph{not} a free parameter tuned to galaxies,
+but is fixed by the spectral geometry of the cosmological horizon together with the present
+Hubble rate $H_0$. The empirical MOND scale thereby acquires a geometric origin,
+$a_0 = 4\pi\,g_{\rm crit}$.
+
+This geometric origin yields a prediction that distinguishes $\Lambda$-EG from MOND. In MOND
+the acceleration scale $a_0$ is a universal constant; in $\Lambda$-EG it inherits the
+cosmological background, $g_{\rm crit}(z)\propto H(z)$, so the zero-point of the BTFR evolves
+with redshift as $V\propto[H(z)/H_0]^{1/4}$. This evolution is \emph{absent} in standard MOND
+and is testable with high-redshift kinematics (e.g.\ JWST/JADES); a second, independent
+discriminator is the acceleration scale probed by wide binary stars, which separates
+$g_{\rm crit}$ from $a_0$ (Gaia). These provide concrete tests where $\Lambda$-EG and MOND
+diverge, rather than merely reproducing shared low-redshift phenomenology.
 
 The field-theoretic structure and geometric derivation of $g_{\rm crit}$ are the primary
 content of this paper. Observational validation against galaxy rotation curves and
@@ -379,15 +400,25 @@ than being imposed phenomenologically.
 \section{Origin of the Critical Scale: Spectral Geometry of De~Sitter}
 \label{sec:gcrit}
 
-The value of $a_*$ is not a free parameter. It is fixed by two independent geometric
-routes applied to the spatial section $S^3$ of the De~Sitter horizon, both yielding
+The value of $a_*$ is not a free parameter. The relevant geometry is not chosen among
+manifolds: $S^3$ is the spatial section of De~Sitter space, the maximally symmetric
+late-time attractor of an accelerating universe, so the construction is fixed by the
+physical vacuum rather than by convenience. We obtain the scale \emph{primarily} from the
+scalar spectral gap on this $S^3$ (Section~\ref{subsec:BL}), with an \emph{independent}
+geometric consistency check from the curvature term on $S^4$ (Section~\ref{subsec:DL});
+both give
 \begin{equation}
   \boxed{g_{\rm crit} = \frac{cH_0}{4\pi^2\sqrt{3}}\approx 9.58\times10^{-12}\ \text{m\,s}^{-2}}
   \label{eq:gcrit}
 \end{equation}
-with $H_0 = 67.4\ \text{km\,s}^{-1}\text{Mpc}^{-1}$ \cite{Planck2020}.
+with $H_0 = 67.4\ \text{km\,s}^{-1}\text{Mpc}^{-1}$ \cite{Planck2020}. The relevant infrared
+scale is the \emph{present} Hubble rate because the coherence length set by the De~Sitter
+thermal bath equals the current horizon radius, $\ell_{\rm dec}\simeq c/H_0$; consequently
+$g_{\rm crit}(z)\propto H(z)$, the origin of the redshift dependence tested at high $z$.
+Why $H_0$ takes its observed value is the cosmological-constant problem and is not
+addressed here.
 
-\subsection{Route 1: Beltrami--Laplace spectrum on \texorpdfstring{$S^3$}{S3}}
+\subsection{Primary derivation: scalar spectral gap on \texorpdfstring{$S^3$}{S3}}
 \label{subsec:BL}
 
 The De~Sitter horizon has spatial section $S^3$ with Hubble radius $R_H = c/H_0$.
@@ -416,8 +447,14 @@ onto $S^3$ (the $\ell_4=0$ mode does not project onto $\ell_3=1$, while $\ell_4=
 does, verified numerically); (c)~geodesic embedding ($S^3\subset S^4$ is totally
 geodesic, so the induced operator carries eigenvalues $\lambda_\ell^{S^3}$ without
 extrinsic correction).
+The resulting number is therefore rigid: a different manifold or a different mode would
+change it (the first non-zero Laplace eigenvalues on $S^2$ and $S^4$ are $2$ and $4$, not
+$3$), so $\sqrt{3}$ is specific to the $\ell=1$ mode on the $S^3$ section of De~Sitter and
+is not adjustable. Being a topological spectral gap, it is robust: it is insensitive to the
+detailed form of the screening potential or of the coupling, which affect the phenomenology
+but not the value of $g_{\rm crit}$.
 
-\subsection{Route 2: Dirac--Lichnerowicz mass on \texorpdfstring{$S^4$}{S4}}
+\subsection{Independent consistency check: Dirac curvature term on \texorpdfstring{$S^4$}{S4}}
 \label{subsec:DL}
 
 The Lichnerowicz--Weitzenb\"ock identity for the \emph{Dirac} operator (acting on spinor
@@ -1139,6 +1176,19 @@ Inertial Lag and the Bullet Cluster without Dark Matter'' (Paper~II), both in pr
 %%  FIGURE CAPTIONS (figures to be inserted)
 %%====================================================
 \clearpage
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.78\textwidth]{fig6_concept.png}
+\caption{%
+  Logical structure of $\Lambda$-EG. The covariant $k$-essence action, evaluated on the
+  De~Sitter horizon, fixes the critical acceleration $g_{\rm crit}$ from the scalar spectral
+  gap and the heat-kernel measure (no free parameters). The scalar field then yields two
+  regimes---chameleon screening (GR) at high acceleration and the deep-MOND branch at low
+  acceleration---feeding the observational phenomenology. The distinguishing prediction is
+  the redshift evolution $a_0(z)\propto H(z)$, absent in MOND.}
+\label{fig:concept}
+\end{figure}
 
 \begin{figure}[ht]
 \centering
