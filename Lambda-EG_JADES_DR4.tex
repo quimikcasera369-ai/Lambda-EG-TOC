@@ -11,13 +11,18 @@
 \hypersetup{colorlinks, linkcolor=MediumBlue, citecolor=black,
             urlcolor=MediumBlue}
 
-%% --- Preprint: neutraliza el membrete de revista de la primera pagina ---
+%% --- Preprint: neutraliza TODO el aparato editorial de la plantilla ---
+%% (membrete, fechas de recepcion/aceptacion y cualquier mencion de revista:
+%%  este documento es un preprint y no ha sido sometido a revision por pares)
 \makeatletter
 \renewcommand{\ps@rmaafirstpage}{%
   \renewcommand\@oddfoot{\hfil\thepage}%
   \renewcommand\@evenfoot{\thepage\hfil}%
   \renewcommand\@oddhead{}%
   \renewcommand\@evenhead{}}
+\renewcommand{\rmaa@ReceivedStyle}[1]{}%  suprime "Received ...; accepted ..."
+\@printdatesfalse
+\renewcommand{\@journalname}{}%           suprime el nombre de la revista
 \makeatother
 
 %% --- Macros utiles ---
@@ -171,15 +176,28 @@ cosmological time dependence,
   V^4 = G\,\Mbar\,\gcrit(z), \qquad
   \gcrit(z)=\frac{c\,H(z)}{4\pi^2\sqrt{3}},
 \end{equation}
-with $H(z)=H_0\sqrt{\Omega_m(1+z)^3+\Omega_\Lambda}$. Equation
+with $H(z)=H_0\sqrt{\Omega_m(1+z)^3+\Omega_\Lambda}$. We note explicitly that
+Eq.~(\ref{eq:btfr}) adopts the \emph{instantaneous de Sitter} reading of
+the critical scale, in which $\gcrit$ tracks the Hubble rate of the epoch.
+In the underlying framework $\gcrit$ is fixed by the curvature of the
+horizon, and the identity $R=12H^2$ that makes the two readings coincide
+holds exactly only in de Sitter space; in a matter-containing FLRW
+background $R=3H_0^2\Omega_m(1+z)^3+12H_0^2\Omega_\Lambda$, and the
+covariant alternative $\gcrit\propto\sqrt{R}$ would brighten the
+zero-point by $0.14$ dex at $z=4$ rather than $0.20$ dex. The difference,
+$0.06$ dex, is an order of magnitude below the systematic floor of the
+present test (\S\ref{sec:discussion}), so the two are not distinguished by
+the data analysed here; we flag the choice as an assumption rather than a
+derived result. Equation
 (\ref{eq:btfr}) implies that, at fixed baryonic mass, the rotation
 velocity scales as
 \begin{equation}
   \label{eq:Vevol}
   \frac{V(z)}{V(0)}=\left[\frac{H(z)}{H_0}\right]^{1/4},
 \end{equation}
-so that the BTFR zero-point brightens by $\approx0.16$ dex at $z=4$ and
-$\approx0.20$ dex at $z=6$ relative to $z=0$.
+so that the BTFR zero-point brightens by $\approx0.17$ dex at $z=3$,
+$\approx0.20$ dex at $z=4$ and $\approx0.26$ dex at $z=6$ relative to
+$z=0$.
 
 It is convenient to define the dimensionless deviation of an individual
 galaxy from the \LEG{} BTFR,

@@ -151,7 +151,14 @@ with redshift as $V\propto[H(z)/H_0]^{1/4}$. This evolution is \emph{absent} in 
 and is testable with high-redshift kinematics (e.g.\ JWST/JADES); a second, independent
 discriminator is the acceleration scale probed by wide binary stars, which separates
 $g_{\rm crit}$ from $a_0$ (Gaia). These provide concrete tests where $\Lambda$-EG and MOND
-diverge, rather than merely reproducing shared low-redshift phenomenology.
+diverge, rather than merely reproducing shared low-redshift phenomenology. We
+flag at the outset that $g_{\rm crit}(z)\propto H(z)$ is the
+\emph{instantaneous--de Sitter} reading of the spectral derivation of
+Section~\ref{sec:gcrit}: there $g_{\rm crit}$ is set by the curvature of the
+horizon, and the identity $R=12H^2$ that turns curvature into Hubble rate is
+exact in de Sitter space only. The covariant alternative is discussed where
+the evolution is derived; it is the reading favoured by the data, but it is a
+reading and not a consequence.
 
 The field-theoretic structure and geometric derivation of $g_{\rm crit}$ are the primary
 content of this paper. Observational validation against galaxy rotation curves and
@@ -867,6 +874,26 @@ Eq.~(\ref{eq:BTFR_evol}) is independent of $H_0$ itself, since both numerator
 and denominator scale proportionally.
 The framework is considered falsified if the observed offset differs from this value,
 if it shows significant mass dependence, or if the intrinsic scatter exceeds 0.04~dex.
+
+\paragraph{Which Hubble rate: a declared assumption.}
+Equation~(\ref{eq:BTFR_evol}) substitutes $H_0\to H(z)$ in
+$g_{\rm crit}=cH/(4\pi^2\sqrt3)$. This is exact if the horizon curvature obeys
+$R=12H^2$ at every epoch, which holds in de Sitter space but not in a
+matter-containing background, where $R=3H_0^2\Omega_m(1+z)^3+12H_0^2\Omega_\Lambda$
+(radiation does not contribute, since $\rho-3p=0$). Reading the spectral
+derivation covariantly, $g_{\rm crit}\propto\sqrt{R}$, gives $+0.071$~dex at
+$z=2$ instead of $+0.120$~dex, and lowers the present-day $a_0$ by $12.4\%$.
+Two consequences must be stated plainly. First, the agreement of the
+predicted $a_0$ with the SPARC value quoted above assumes the de Sitter form
+$R=12H_0^2$; with the FLRW $R$ the agreement degrades to $-12.4\%$, which is
+still well inside the $20\%$ systematic uncertainty of the measured $a_0$ but
+is no longer a coincidence at the sub-percent level. Second, the redshift
+evolution is a reading of the derivation rather than a derived consequence of
+it. The de Sitter reading is the one the present-day data favour, and a
+physical criterion that would select it---adiabaticity, if the pointer states
+re-equilibrate rapidly compared with $t_H$ and therefore sample the apparent
+horizon rather than the global curvature---is plausible but not derived here.
+We record this as an open point rather than resolving it.
 
 \paragraph{Off-equilibrium cluster dynamics.}
 The non-equilibrium extension of $\Lambda$-EG, developed in Paper~II~\cite{PaperII},

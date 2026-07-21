@@ -5,14 +5,13 @@ authors:
   - family-names: "Figueroa Torres"
     given-names: "J. Pablo"
     orcid: "https://orcid.org/0009-0005-5297-8777"
-version: "1.1.0"
-date-released: "2026-07-09"
+version: "1.2.0"
+date-released: "2026-07-21"
 doi: 10.5281/zenodo.21287072
 license: CC-BY-4.0
 abstract: >-
   Canonical consolidated record of the Lambda-EG (Lambda Emergent Gravity)
-  programme: the covariant scalar-tensor emergent-gravity framework (v7, with the
-  a0 = 4*pi*g_crit zero-point correction), its confrontation with JADES DR4
+  programme: the covariant scalar-tensor emergent-gravity framework (v9), its confrontation with JADES DR4
   high-redshift data, and the geometric mu-theorem characterizing the standard
   MOND interpolating function mu(x)=x/sqrt(1+x^2) as the isotropic distribution of
   cot(theta). The acceleration scale g_crit = cH0/(4*pi^2*sqrt(3)) = 9.577e-12
